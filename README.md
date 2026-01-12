@@ -51,4 +51,4 @@ rubs exists because [chubs](https://github.com/kwiberg/chubs) exists. All credit
 
 ## License
 
-MIT
+Dual-licensed under MIT or BSD-2-Clause, at your option. See [LICENSE-MIT](LICENSE-MIT) and [LICENSE-BSD-2-Clause](LICENSE-BSD-2-Clause).

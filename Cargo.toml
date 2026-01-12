@@ -1,0 +1,9 @@
+[package]
+name = "rubs"
+version = "0.1.0"
+edition = "2024"
+description = "XKCD-style passphrase generator with TUI and cryptographic extensions"
+license = "MIT OR BSD-2-Clause"
+readme = "README.md"
+
+[dependencies]
