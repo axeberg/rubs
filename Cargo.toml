@@ -6,5 +6,11 @@ description = "XKCD-style passphrase generator with TUI and cryptographic extens
 license = "MIT OR BSD-2-Clause"
 readme = "README.md"
 repository = "https://github.com/axeberg/rubs"
+homepage = "https://github.com/axeberg/rubs"
 
 [dependencies]
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
