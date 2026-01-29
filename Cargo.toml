@@ -9,6 +9,9 @@ repository = "https://github.com/axeberg/rubs"
 homepage = "https://github.com/axeberg/rubs"
 publish = false
 
+[package.metadata.dist]
+dist = true
+
 [dependencies]
 rand = "0.9"
 clap = { version = "4", features = ["derive"] }
