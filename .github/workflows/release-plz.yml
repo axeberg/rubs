@@ -23,6 +23,6 @@ jobs:
         with:
           toolchain: stable
       - name: Run release-plz
-        uses: release-plz/action@b7f8ff15272a7743f9a9721019fb52ed742b9253 # v0.5
+        uses: release-plz/action@e592230ad39e3ec735402572601fc621aa24355c # v0.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
