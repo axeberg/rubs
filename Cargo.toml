@@ -15,7 +15,7 @@ dist = true
 [dependencies]
 rand = "0.9"
 clap = { version = "4", features = ["derive"] }
-ratatui = "0.29"
+ratatui = "0.30"
 crossterm = "0.29"
 
 # The profile that 'dist' will build with
