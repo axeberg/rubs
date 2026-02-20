@@ -15,6 +15,7 @@ updates:
     commit-message:
       prefix: "ci"
     ignore:
+      - dependency-name: "actions/checkout"
       - dependency-name: "actions/upload-artifact"
       - dependency-name: "actions/download-artifact"
       - dependency-name: "actions/attest-build-provenance"
