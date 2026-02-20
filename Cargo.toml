@@ -13,7 +13,7 @@ publish = false
 dist = true
 
 [dependencies]
-rand = "0.9"
+rand = "0.10"
 clap = { version = "4", features = ["derive"] }
 ratatui = "0.30"
 crossterm = "0.29"
