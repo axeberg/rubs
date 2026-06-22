@@ -1,0 +1,45 @@
+name: Security Audit
+
+# `cargo audit` checks the dependency tree against the live RustSec advisory
+# database. Because the database changes independently of this repo, a freshly
+# published advisory can fail the check on any open PR — including ones that
+# don't touch Rust dependencies at all. To keep that noise out of the merge
+# gate while still catching real issues:
+#   * On pull requests it only runs when the manifest/lockfile change, and it
+#     is non-blocking (informational).
+#   * On `main` and on a daily schedule it runs blocking, so newly published
+#     advisories are surfaced regardless of PR activity.
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+      - ".github/workflows/audit.yml"
+  pull_request:
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+      - ".github/workflows/audit.yml"
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  audit:
+    name: Audit
+    runs-on: ubuntu-latest
+    # Don't block PRs on advisories unrelated to the change; the scheduled and
+    # push-to-main runs are the authoritative gate.
+    continue-on-error: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: taiki-e/install-action@25435dc8dd3baed7417e0c96d3fe89013a5b2e09 # v2
+        with:
+          tool: cargo-audit
+      - run: cargo audit
