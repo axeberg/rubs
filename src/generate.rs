@@ -50,7 +50,7 @@ pub fn generate(bits: u32, wordlist: &HashSet<String>) -> PassphraseInfo {
     // Sample using OS-provided cryptographic randomness
     let mut rng = rand::rng();
     let chosen: Vec<String> = sorted_words
-        .choose_multiple(&mut rng, words_needed)
+        .sample(&mut rng, words_needed)
         .cloned()
         .collect();
 
