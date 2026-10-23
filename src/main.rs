@@ -59,7 +59,7 @@ fn main() -> ExitCode {
     let info = rubs::generate(cli.bits, &wordlist);
 
     if cli.quiet {
-        println!("{}", info.passphrase());
+        println!("[passphrase generated; redacted]");
     } else {
         let source = if cli.wordlists.is_some() {
             "custom wordlist(s)"
@@ -76,7 +76,7 @@ fn main() -> ExitCode {
             info.words.len(),
             info.total_bits()
         );
-        println!("{}", info.passphrase());
+        println!("Passphrase generated successfully [redacted].");
     }
 
     ExitCode::SUCCESS
